@@ -23,7 +23,7 @@ export const useGames = () => {
       .get<FetchGamesResponse>("/games")
       .then((response) => setGames(response.data.results))
       .catch((error) => setError(error.message));
-  });
+  }, []);
 
   return { games, error };
 };
