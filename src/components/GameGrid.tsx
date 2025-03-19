@@ -6,7 +6,7 @@ export const GameGrid = () => {
   const { games, error } = useGames();
 
   return (
-    <div className="m-6 flex gap-6 items-center overflow-x-scroll w-full h-screen scroll-smooth">
+    <div className="columns-3 m-6 gap-6">
       {error && <p className="text-black">{error}</p>}
       {games.map((game) => (
         <GameCard key={game.id} game={game} />
