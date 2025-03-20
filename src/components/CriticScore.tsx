@@ -1,3 +1,4 @@
+"use client";
 import { Badge } from "./ui/badge";
 
 interface CriticScoreProp {
@@ -5,9 +6,8 @@ interface CriticScoreProp {
 }
 
 export const CriticScore = ({ score }: CriticScoreProp) => {
-  return (
-    <>
-      <Badge>{score}</Badge>
-    </>
-  );
+  let color =
+    score > 80 ? "bg-green-600" : score > 60 ? "bg-yellow-600" : "bg-red-600";
+
+  return <Badge className={`${color} text-xl`}>{score}</Badge>;
 };

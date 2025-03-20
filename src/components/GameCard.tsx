@@ -14,10 +14,10 @@ export const GameCard = ({ game }: GameCardProp) => {
         <CardContent className="p-0">
           <img src={game.background_image} alt={game.name} className="h-64" />
         </CardContent>
-        <CardHeader className="px-3">{game.name}</CardHeader>
-        <CardFooter>
-          <CriticScore score={game.metacritic} />
-        </CardFooter>
+        <CardHeader className="px-3 font-medium">
+          {game.name} <CriticScore score={game.metacritic} />
+        </CardHeader>
+        <CardFooter></CardFooter>
       </Card>
     </div>
   );
