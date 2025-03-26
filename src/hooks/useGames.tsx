@@ -17,14 +17,21 @@ interface FetchGamesResponse {
 export const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
-  const [loading, isLoading] = useState("false");
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     apiClient
       .get<FetchGamesResponse>("/games")
-      .then((response) => setGames(response.data.results))
-      .catch((error) => setError(error.message));
+      .then((response) => {
+        setGames(response.data.results);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
   }, []);
 
-  return { games, error };
+  return { games, error, isLoading };
 };

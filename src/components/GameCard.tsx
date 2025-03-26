@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { useGames, Game } from "@/hooks/useGames";
 import { CriticScore } from "./CriticScore";
 import getCroppedImageUrl from "@/services/image-url";
+import { GameCardSkeleton } from "./GameCardSkeleton";
 
 interface GameCardProp {
   game: Game;
